@@ -1,5 +1,5 @@
 // App Imports
-import models from '../models/index'
+import models from './models'
 import config from '../config/config.json'
 
 // Sync database tables and start server
