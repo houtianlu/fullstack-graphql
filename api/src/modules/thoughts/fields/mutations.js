@@ -2,7 +2,7 @@
 import {GraphQLString, GraphQLInt} from 'graphql'
 
 // App Imports
-import ThoughtType from '../type'
+import ThoughtType from '../types'
 import {create, remove} from '../resolvers'
 
 // Thought create

@@ -2,7 +2,7 @@
 import {GraphQLInt, GraphQLList} from 'graphql'
 
 // App Imports
-import ThoughtType from '../type'
+import ThoughtType from '../types'
 import {getAll, getById} from '../resolvers'
 
 // Thoughts All
