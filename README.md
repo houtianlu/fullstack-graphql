@@ -4,9 +4,9 @@
 
 Simple Demo Application
 
-**API** built with Node + Express + GraphQL + Sequelize (supports MySQL, Postgres, Sqlite and MSSQL). 
+**API** built with Node + Express + GraphQL + Sequelize (supports MySQL, Postgres, Sqlite and MSSQL).
 
-**WebApp** built with React + Redux. 
+**WebApp** built with React + Redux.
 
 Written in ES6 using Babel + Webpack.
 
@@ -17,7 +17,9 @@ Written in ES6 using Babel + Webpack.
 - [x] View single thought
 
 ## ▶️ Running
-- Clone repo `git clone git@github.com:atulmy/fullstack-graphql.git fullstack-graphql`
+- `brew install node`
+- `brew install mysql`
+- Clone repo `git clone https://github.com/houtianlu/fullstack-graphql.git fullstack-graphql`
 - Install NPM modules API `cd api` and `npm install`
 - Install NPM modules Webapp `cd web` and `npm install`
 - Modify `/api/src/config/database.json` for database credentials
@@ -90,7 +92,7 @@ Video: [MOV](http://atulmy.com/atulmy.com/attachments/images/fullstack-graphql.m
 - Adding new Route (Eg: `/users`):
   - Add a new entry to `routes` object in `/web/src/setup/routes.js` (eg `user: { list: '/list' }`)
   - Edit `/web/src/components/App.js` and add the route entry
-  
+
 ## Sample GraphQL Queries
 These queries are generated on client side using `queryBuilder()` helper defined in `/web/src/setup/helpers.js`
 
@@ -167,7 +169,7 @@ query {
                 <pre>
 mutation {
   thoughtCreate(
-    name: "Tyrion Lannister", 
+    name: "Tyrion Lannister",
     thought:"I drink and I know things"
   ) {
     id
