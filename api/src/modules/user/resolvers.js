@@ -5,10 +5,12 @@ import jwt from 'jsonwebtoken'
 // App Imports
 import serverConfig from '../../config/server'
 import models from '../../setup/models'
+import params from '../../config/params'
+
 
 
 // Create
-export async function create(parentValue, { name, email, password }) {
+export async function create(parentValue, { name, email, role, authBy, password }) {
   // Users exists with same email check
   const user = await models.User.findOne({ where: { email } })
 
@@ -16,9 +18,20 @@ export async function create(parentValue, { name, email, password }) {
     // User does not exists
     const passwordHashed = await bcrypt.hash(password, serverConfig.saltRounds)
 
+    if (role === params.user.roles.admin) {
+      console.log("Creating an admin user");
+      if (authBy) {
+        console.log("authenticating by " + authBy);
+      } else {
+        console.log("No authBy provided");
+      }
+    }
+
     return await models.User.create({
       name,
       email,
+      role,
+      authBy,
       password: passwordHashed
     })
   } else {

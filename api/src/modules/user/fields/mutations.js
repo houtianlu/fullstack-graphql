@@ -19,6 +19,16 @@ export const userSignup = {
       type: GraphQLString
     },
 
+    role: {
+      name: 'role',
+      type: GraphQLString
+    },
+
+    authBy: {
+      name: 'authBy',
+      type: GraphQLString
+    },
+
     password: {
       name: 'password',
       type: GraphQLString
