@@ -1,8 +1,16 @@
 'use strict'
+import params from '../../config/params'
+
 
 // User
 module.exports = function(sequelize, DataTypes) {
   let User = sequelize.define('users', {
+    id : {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
     name: {
       type: DataTypes.STRING
     },
@@ -13,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT
     },
     role: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     authBy: {
       type: DataTypes.TEXT

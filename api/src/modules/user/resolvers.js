@@ -18,10 +18,22 @@ export async function create(parentValue, { name, email, role, authBy, password 
     // User does not exists
     const passwordHashed = await bcrypt.hash(password, serverConfig.saltRounds)
 
+    if (authBy) {
+      const authByuser = await models.User.findOne({ where: { authBy } })
+      if (!authByuser) {
+        // User does not exists
+        throw new Error(`We do not have any user registered with ${ authBy } email address.
+          Leave this empty if you want to send email to all admin users.`)
+      } else {
+        const userDetails = authByuser.get();
+        console.log("getting authBy user's emai is " + userDetails.get('email'));
+      }
+    }
     if (role === params.user.roles.admin) {
       console.log("Creating an admin user");
       if (authBy) {
         console.log("authenticating by " + authBy);
+
       } else {
         console.log("No authBy provided");
       }
