@@ -22,10 +22,10 @@ const View = ({ match: { params: { id } } }) => {
   // render
   return (
     <div>
-      <h1>Thought</h1>
+      <h1>Case</h1>
 
       <p>
-        <Link to={routes.thoughts.list}>Back</Link>
+        <Link to={routes.cases.list}>Back</Link>
       </p>
 
       {/* Single thought */}

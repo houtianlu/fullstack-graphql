@@ -6,20 +6,20 @@ import { query, mutation } from 'gql-query-builder'
 import {routesApi} from '../../../setup/routes'
 
 // Actions Types
-export const THOUGHTS_GET_LIST_REQUEST = 'THOUGHTS/GET_LIST_REQUEST'
-export const THOUGHTS_GET_LIST_RESPONSE = 'THOUGHTS/GET_LIST_RESPONSE'
-export const THOUGHTS_GET_LIST_FAILURE = 'THOUGHTS/GET_LIST_FAILURE'
-export const THOUGHTS_GET_REQUEST = 'THOUGHTS/GET_REQUEST'
-export const THOUGHTS_GET_RESPONSE = 'THOUGHTS/GET_RESPONSE'
-export const THOUGHTS_GET_FAILURE = 'THOUGHTS/GET_FAILURE'
+export const CASES_GET_LIST_REQUEST = 'CASES/GET_LIST_REQUEST'
+export const CASES_GET_LIST_RESPONSE = 'CASES/GET_LIST_RESPONSE'
+export const CASES_GET_LIST_FAILURE = 'CASES/GET_LIST_FAILURE'
+export const CASES_GET_REQUEST = 'CASES/GET_REQUEST'
+export const CASES_GET_RESPONSE = 'CASES/GET_RESPONSE'
+export const CASES_GET_FAILURE = 'CASES/GET_FAILURE'
 
 // Actions
 
-// Get list of thoughts
+// Get list of cases
 export function getList(isLoading = true) {
   return dispatch => {
     dispatch({
-      type: THOUGHTS_GET_LIST_REQUEST,
+      type: CASES_GET_LIST_REQUEST,
       isLoading
     })
 
@@ -29,14 +29,14 @@ export function getList(isLoading = true) {
     }))
       .then((response) => {
         dispatch({
-          type: THOUGHTS_GET_LIST_RESPONSE,
+          type: CASES_GET_LIST_RESPONSE,
           error: null,
           list: response.data.data.thoughts
         })
       })
       .catch((error) => {
         dispatch({
-          type: THOUGHTS_GET_LIST_FAILURE,
+          type: CASES_GET_LIST_FAILURE,
           error: error
         })
       })
@@ -47,7 +47,7 @@ export function getList(isLoading = true) {
 export function get(id, isLoading = true) {
   return dispatch => {
     dispatch({
-      type: THOUGHTS_GET_REQUEST,
+      type: CASES_GET_REQUEST,
       isLoading
     })
 
@@ -58,21 +58,21 @@ export function get(id, isLoading = true) {
     }))
       .then((response) => {
         dispatch({
-          type: THOUGHTS_GET_RESPONSE,
+          type: CASES_GET_RESPONSE,
           error: null,
           item: response.data.data.thought
         })
       })
       .catch((error) => {
         dispatch({
-          type: THOUGHTS_GET_FAILURE,
+          type: CASES_GET_FAILURE,
           error: error
         })
       })
   }
 }
 
-// Create thought
+// Create case
 export function create(variables) {
   return axios.post(routesApi, mutation({
     operation: 'thoughtCreate',
@@ -80,7 +80,7 @@ export function create(variables) {
   }))
 }
 
-// Remove thought
+// Remove case
 export function remove(variables) {
   return axios.post(routesApi, mutation({
     operation: 'thoughtRemove',

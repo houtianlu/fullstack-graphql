@@ -4,12 +4,12 @@ import thunk from 'redux-thunk'
 
 // App Imports
 import common from '../components/common/api/state'
-import * as thoughts from '../components/thoughts/api/state'
+import * as cases from '../components/cases/api/state'
 
 // Root Reducer
 const rootReducer = combineReducers({
   common,
-  ...thoughts
+  ...cases
 })
 
 // Store

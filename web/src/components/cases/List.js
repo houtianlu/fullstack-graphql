@@ -12,7 +12,7 @@ import Item from './Item'
 // Component
 const List = () => {
   // state
-  const { isLoading, list } = useSelector(state => state.thoughts)
+  const { isLoading, list } = useSelector(state => state.cases)
   const dispatch = useDispatch()
 
   // on mount/update
@@ -23,10 +23,10 @@ const List = () => {
   // render
   return (
     <div>
-      <h1>Thoughts</h1>
+      <h1>Cases</h1>
 
       <p>
-        <Link to={routes.thoughts.create}>Create</Link>
+        <Link to={routes.cases.create}>Create</Link>
       </p>
 
       {/* List thoughts */}

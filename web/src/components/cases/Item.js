@@ -43,7 +43,7 @@ const Item = ({ thought: { id, name, thought } }) => {
 
       {' '}
 
-      <Link to={routes.thoughts.view(id)}>
+      <Link to={routes.cases.view(id)}>
         <button>View</button>
       </Link>
 

@@ -22,7 +22,7 @@ const Create = () => {
     // Hide old messages
     dispatch(messageHide())
 
-    dispatch(messageShow('Creating thought, please wait...'))
+    dispatch(messageShow('Creating case, please wait...'))
 
     isSubmittingToggle(true)
 
@@ -51,10 +51,10 @@ const Create = () => {
   // render
   return (
     <div>
-      <h1>Thought Create</h1>
+      <h1>Case Create</h1>
 
       <p>
-        <Link to={routes.thoughts.list}>Back</Link>
+        <Link to={routes.cases.list}>Back</Link>
       </p>
 
       {/* Form */}
@@ -71,7 +71,7 @@ const Create = () => {
 
         <br/><br/>
 
-        {/* Thought */}
+        {/* Case */}
         <textarea
           name="thought"
           placeholder="Your thought"
