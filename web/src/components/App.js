@@ -17,12 +17,11 @@ const App = () => (
     <Switch>
       {/* Common */}
       <Route path={routes.home} component={Home} exact/>
-      <Route path={routes.about} component={About}/>
 
-      {/* Cases */}
-      <Route path={routes.cases.list} component={CasesList} exact/>
-      <Route path={routes.cases.create} component={ThoughtsCreate}/>
-      <Route path={routes.cases.view(':id')} component={ThoughtsView}/>
+      // {/* Cases */}
+      // <Route path={routes.cases.list} component={CasesList} exact/>
+      // <Route path={routes.cases.create} component={ThoughtsCreate}/>
+      // <Route path={routes.cases.view(':id')} component={ThoughtsView}/>
     </Switch>
   </Layout>
 )
