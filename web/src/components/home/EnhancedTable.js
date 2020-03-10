@@ -59,6 +59,10 @@ const EditableCell = ({
   //   setValue(e.target.value)
   // }
 
+  const onclick = e => {
+    window.location.href='/case?' + index;
+  }
+
   // We'll only update the external data when the input is blurred
   // const onBlur = () => {
   //   updateMyData(index, id, value)
@@ -75,6 +79,7 @@ const EditableCell = ({
       value={value}
       // onChange={onChange}
       // onBlur={onBlur}
+      onClick={onclick}
     />
   )
 }
@@ -130,34 +135,34 @@ const EnhancedTable = ({
     useGlobalFilter,
     useSortBy,
     usePagination,
-    useRowSelect,
-    hooks => {
-      hooks.allColumns.push(columns => [
-        // Let's make a column for selection
-        {
-          id: 'selection',
-          // The header can use the table's getToggleAllRowsSelectedProps method
-          // to render a checkbox.  Pagination is a problem since this will select all
-          // rows even though not all rows are on the current page.  The solution should
-          // be server side pagination.  For one, the clients should not download all
-          // rows in most cases.  The client should only download data for the current page.
-          // In that case, getToggleAllRowsSelectedProps works fine.
-          // Header: ({ getToggleAllRowsSelectedProps }) => (
-          //   <div>
-          //     <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
-          //   </div>
-          // ),
-          // The cell can use the individual row's getToggleRowSelectedProps method
-          // to the render a checkbox
-          Cell: ({ row }) => (
-            <div>
-              <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
-            </div>
-          ),
-        },
-        ...columns,
-      ])
-    }
+    useRowSelect
+    // hooks => {
+    //   hooks.allColumns.push(columns => [
+    //     // Let's make a column for selection
+    //     {
+    //       id: 'selection',
+    //       // The header can use the table's getToggleAllRowsSelectedProps method
+    //       // to render a checkbox.  Pagination is a problem since this will select all
+    //       // rows even though not all rows are on the current page.  The solution should
+    //       // be server side pagination.  For one, the clients should not download all
+    //       // rows in most cases.  The client should only download data for the current page.
+    //       // In that case, getToggleAllRowsSelectedProps works fine.
+    //       // Header: ({ getToggleAllRowsSelectedProps }) => (
+    //       //   <div>
+    //       //     <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
+    //       //   </div>
+    //       // ),
+    //       // The cell can use the individual row's getToggleRowSelectedProps method
+    //       // to the render a checkbox
+    //       Cell: ({ row }) => (
+    //         <div>
+    //           <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+    //         </div>
+    //       ),
+    //     },
+    //     ...columns,
+    //   ])
+    // }
   )
 
   const handleChangePage = (event, newPage) => {
@@ -201,9 +206,9 @@ const EnhancedTable = ({
             <TableRow {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
                 <TableCell
-                  {...(column.id === 'selection'
-                    ? column.getHeaderProps()
-                    : column.getHeaderProps(column.getSortByToggleProps()))}
+                  // {...(column.id === 'selection'
+                  //   ? column.getHeaderProps()
+                  //   : column.getHeaderProps(column.getSortByToggleProps()))}
                 >
                   {column.render('Header')}
                   {column.id !== 'selection' ? (

@@ -9,6 +9,10 @@ const Home = () => {
   const columns = React.useMemo(
     () => [
       {
+        Header: "Case ID",
+        accessor: "id"
+      },
+      {
         Header: "First Name",
         accessor: "firstName"
       },
@@ -29,8 +33,8 @@ const Home = () => {
         accessor: "status"
       },
       {
-        Header: "Profile Progress",
-        accessor: "progress"
+        Header: "Phone Number",
+        accessor: "phone"
       }
     ],
     []

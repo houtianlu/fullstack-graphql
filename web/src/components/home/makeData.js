@@ -8,20 +8,38 @@ const range = len => {
   return arr
 }
 
-const newCase = () => {
+const randomStartDate = () => {
+  const start = new Date(2018, 0, 1)
+  const end = new Date(2019, 0, 1)
+  const res = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  return res.toLocaleDateString("en-US")
+}
+
+const randomEndDate = () => {
+  const start = new Date(2019, 1, 1)
+  const end = new Date(2020, 0, 1)
+  const res = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+  return res.toLocaleDateString("en-US")
+}
+
+
+const newCase = (d) => {
   const statusChance = Math.random()
+  const startDate = randomStartDate()
+  const endDate = randomEndDate()
   return {
-    firstName: namor.generate({ words: 1, numbers: 0 }),
-    lastName: namor.generate({ words: 1, numbers: 0 }),
-    dateOpen: Math.floor(Math.random() * 30),
-    dateClose: Math.floor(Math.random() * 100),
-    progress: Math.floor(Math.random() * 100),
+    id: d + 1,
+    firstName: namor.generate({ words: 1, saltLength: 0 }),
+    lastName: namor.generate({ subset: "manly" ,  words: 1, saltLength: 0 }),
+    dateOpen: startDate,
+    dateClose: endDate,
+    phone: Math.floor(Math.random() * 1000000000),
     status:
       statusChance > 0.66
-        ? 'relationship'
+        ? 'in progress'
         : statusChance > 0.33
-        ? 'complicated'
-        : 'single',
+        ? 'pending'
+        : 'finished',
   }
 }
 
@@ -30,7 +48,7 @@ export default function makeData(...lens) {
     const len = lens[depth]
     return range(len).map(d => {
       return {
-        ...newCase(),
+        ...newCase(d),
         subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
       }
     })
