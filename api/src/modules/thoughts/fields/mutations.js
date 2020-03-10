@@ -9,13 +9,8 @@ import {create, remove} from '../resolvers'
 export const thoughtCreate = {
   type: ThoughtType,
   args: {
-    name: {
-      name: 'name',
-      type: GraphQLString
-    },
-
-    thought: {
-      name: 'thought',
+    type: {
+      name: 'type',
       type: GraphQLString
     }
   },

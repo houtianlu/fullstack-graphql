@@ -1,24 +1,23 @@
 // App Imports
 import models from '../../setup/models'
 
-// Get thoughts by ID
+// Get case by ID
 export async function getById(parentValue, { id }) {
   return await models.Thought.findOne({ where: { id } })
 }
 
-// Get all thoughts
+// Get all case
 export async function getAll() {
   return await models.Thought.findAll({ order: [ ['createdAt', 'DESC'] ] })
 }
 
-// Create thought
-export async function create(parentValue, { name, thought }) {
-  console.log(name)
-  console.log(thought)
-  return await models.Thought.create({ name, thought })
+// Create case
+export async function create(parentValue, { type }) {
+  console.log(type)
+  return await models.Thought.create({ type })
 }
 
-// Delete thought
+// Delete case
 export async function remove(parentValue, {id}) {
   return await models.Thought.destroy({ where: { id } })
 }
