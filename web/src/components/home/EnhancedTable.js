@@ -60,7 +60,7 @@ const EditableCell = ({
   // }
 
   const onclick = e => {
-    window.location.href='/case?' + index;
+    window.location.href=`/cases/${ index }`;
   }
 
   // We'll only update the external data when the input is blurred
