@@ -209,6 +209,7 @@ const EnhancedTable = ({
                   // {...(column.id === 'selection'
                   //   ? column.getHeaderProps()
                   //   : column.getHeaderProps(column.getSortByToggleProps()))}
+                  {...column.getHeaderProps(column.getSortByToggleProps())}
                 >
                   {column.render('Header')}
                   {column.id !== 'selection' ? (
