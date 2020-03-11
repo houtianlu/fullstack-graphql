@@ -24,13 +24,6 @@ const View = ({ match: { params: { id } } }) => {
     dispatch(get(id))
   }, [])
 
-  useEffect(() => {
-    setThought({
-      name: item.name,
-      thought: item.thought,
-    })
-  })
-
   const onSubmit = async event => {
     event.preventDefault()
 
